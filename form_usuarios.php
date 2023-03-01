@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="submit" value="Crear" name="crear" class="btn btn-success"></input>
+            <input type="submit" value="Crear" name="crear" class="btn btn-success"></input> 
             <a class="btn btn-danger" href='crud_usuarios.php'>Cancelar<a>
                 
         </div>  
