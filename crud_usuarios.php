@@ -5,17 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Usuarios</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/all.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Tabla de Usuarios</h1>
-    <a href="form_usuarios.php"><button>Crear Usuario</button></a><br><br>
+<main role="main" class="flex-shrink-0">
+<div class="container">
+<div class="form-control">
+     <!-- Example row of columns -->
+     <div class="row">
+       <div class="col-lg-12">
 
+    <h1>Tabla de Usuarios</h1>
+        <div class="row">
+        <div class="col-lg-1">
+        <a class="btn btn-danger" href='album.html'>Regresar<a>
+        </div>
+        <div class="col-lg-1">
+        <a class="btn btn-success" href='form_usuarios.php'>Crear Usuario<a>
+        </div>
+        <br><br>
+        <br>
+    </div>
     <?php 
         include_once("db.php");
         $resultado1 = mysqli_query($conexion,"SELECT * FROM user");
 
         echo"
-        <table width=\"400\" border=\"1\">
+        <table width=\"400\" class=\"table\">
         <thead>
             <tr>
                 <td><b><center>ID</center></b></td>
@@ -30,18 +50,22 @@
         {
             echo 
             "
-                <td>".$consulta1['ID']."</td>
-                <td>".$consulta1['username']."</td>
-                <td>".$consulta1['pasword']."</td>
-                <td>".$consulta1['fk_rol']."</td>
-                <td><a href=\"\"><button type=\"button\">Editar</td>
-                <td><a href=\"\"><button type=\"button\">Eliminar</td>
+                <td><center>".$consulta1['ID']."</center></td>
+                <td><center>".$consulta1['username']."</center></td>
+                <td><center>".$consulta1['pasword']."</center></td>
+                <td><center>".$consulta1['fk_rol']."</center></td>
+                <td><center><a class=\"btn btn-success\" href=\"\">Editar</center></td>
+                <td><center><a class=\"btn btn-danger\" href=\"\">Eliminar</center></td>
             </tr>
         <thead>
             
             ";
         }
     ?>
+        </div>
+    </div> <!-- Conteiner -->
+</main>
+
 </table>
 </body>
 </html>

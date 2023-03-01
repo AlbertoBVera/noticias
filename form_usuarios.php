@@ -12,20 +12,40 @@
     <link href="/css/signin.css" rel="stylesheet">
     <link href="/css/all.min.css">
 </head>
-<body class="conteiner">
-
-    <h1>Formulario de Usuarios</h1>
+<body>
+<main role="main" class="flex-shrink-0">
+<div class="container">
+      <div class="form-control">
+        
+    <h1>Formulario de Usuarios</h1><br>
 
     <form action="form_usuarios.php" method="post">
-        <label>Nombre de Usuario: </label>
-        <input type="text" name="username" id="usuario"></input><br>
-        <label>Contraseña: </label>
-        <input type="password" name="pasword" id="pasword"></input><br>
-        <label>Rol ID: </label>
-        <input type="number" name="fk_rol" id="fk_rol"></input><br>      
-        <br>
-        <input type="submit" value="Crear" name="crear"></input>      
+        
+        <div class="form-group">
+            <label class="col-md-12 control-label">Nombre de Usuario: </label>
+            <div class="col-md-12"> 
+            <input type="text" name="username" id="usuario" class="form-control"></input>         
+            </div>
+        </div>
 
+        <div class="form-group">
+            <label class="col-md-12 control-label">Contraseña: </label>
+            <div class="col-md-12"> 
+            <input type="password" name="pasword" id="pasword" class="form-control"></input>
+            </div>
+        </div>    
+        
+        <div class="form-group">
+            <label class="col-md-12 control-label">Rol ID: </label>
+            <div class="col-md-12"> 
+            <input type="number" name="fk_rol" id="fk_rol" class="form-control"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Crear" name="crear" class="btn btn-success"></input>
+            <a class="btn btn-danger" href='crud_usuarios.php'>Cancelar<a>
+                
+        </div>  
 <?php
     if(isset($_POST['crear'])){
 
@@ -43,5 +63,6 @@
         </script>';
     }
 ?>
+</main>
 </body>
 </html>
