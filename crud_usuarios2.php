@@ -30,44 +30,46 @@
         <br><br>
         <br>
     </div>
-    
-    <table width="100%" cellspacing="0" class="table">
-    <tr>
+    <?php 
+        include_once("db.php");
+        $resultado1 = mysqli_query($conexion,"SELECT * FROM user");
+
+        echo"
+        <table width=\"400\" class=\"table\">
+        <thead>
+            <tr>
                 <td><b>ID</b></td>
                 <td><b>Nombre de Usuario</b></td>
                 <td><b>Contraseña</b></td>
                 <td><b>Rol ID</b></td>
-                <td><b>Eliminar</b></td>
-                <td><b>Editar</b></td>
+                <td><b><center>Editar</center></b></td>
+                <td><b><center>Eliminar</center></b></td>
             </tr>
-            
-        <?php  
-        include_once("db.php");
-        $select = "SELECT * FROM user";
-        $consulta1 = mysqli_query($conexion,$select);
-        
-            foreach ($consulta1 as $fila)
-            {
-                $datos=$fila['ID']."||".
-                $datos=$fila['username']."||".
-                $datos=$fila['pasword']."||".
-                $fila['fk_rol'];
-                $datos=array();
-                ?>
-                <th> <?php echo ($fila['ID'])?></th>
-                <th> <?php echo ($fila['username'])?></th>
-                <th> <?php echo ($fila['pasword'])?></th>
-                <th> <?php echo ($fila['fk_rol'])?></th>
-
-            <td><a class="btn btn-danger" href="eliminar_usuario.php?ID=<?php echo $fila['ID']?>"> Eliminar</td>
-            <td><a class="btn btn-success" href="editar_usuario.php?ID=<?php echo $fila['ID']?>">Editar</td>
-            <!--d><a class="btn btn-danger" href="">Eliminar</td-->
-            <?php
-            echo "</tr>";
-            }
-        ?>
-    </table>
+            <tr>";
+        while($consulta1 = mysqli_fetch_array($resultado1))
+        {
+            echo 
+            "
+                <td>".$consulta1['ID']."</center></td>
+                <td>".$consulta1['username']."</center></td>
+                <td>".$consulta1['pasword']."</center></td>
+                <td>".$consulta1['fk_rol']."</center></td>
+                <td><center><a class=\"btn btn-success\" href=\"\">Editar</center></td>
+                <td><center><a class=\"btn btn-danger\" href=\"eliminar_usuario.php?ID=".$consulta1['ID']."\">Eliminar</center></td>
+            </tr>
+        <thead>
+            ";
+        }
+    ?>
+    
+        </div>
+    </div> <!-- Conteiner -->
 </main>
+
+
+
+
+
 
 </body>
 </html>
